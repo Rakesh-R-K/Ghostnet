@@ -32,3 +32,24 @@ def encrypt_data(data: bytes, key: bytes) -> bytes:
     chacha = ChaCha20Poly1305(key)
     nonce = os.urandom(12)
     ciphertext = chacha.encrypt(nonce, data, None)
+    return nonce + ciphertext
+
+def decrypt_data(encrypted_data: bytes, key: bytes) -> bytes:
+    """
+    Decrypts data using ChaCha20Poly1305.
+    Expects nonce (12 bytes) prepended to ciphertext.
+    """
+    chacha = ChaCha20Poly1305(key)
+    nonce = encrypted_data[:12]
+    ciphertext = encrypted_data[12:]
+    return chacha.decrypt(nonce, ciphertext, None)
+
+if __name__ == "__main__":
+    # Simple test
+    key = generate_key()
+    msg = b"Secret Message"
+    enc = encrypt_data(msg, key)
+    dec = decrypt_data(enc, key)
+    print(f"Original: {msg}")
+    print(f"Decrypted: {dec}")
+    assert msg == dec
