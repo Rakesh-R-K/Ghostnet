@@ -24,5 +24,7 @@ jobs:
         pip install pytest structlog python-dotenv cryptography
         
     - name: Run tests
+      env:
+        GHOSTNET_ENCRYPTION_KEY: "test-key-32-chars-long-1234567890"
       run: |
         pytest tests/ -v
