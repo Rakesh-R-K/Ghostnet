@@ -26,10 +26,13 @@ class Config:
         env_key = f"GHOSTNET_{key.upper()}"
         env_val = os.getenv(env_key)
         if env_val is not None:
+            # print(f"DEBUG: Found {key} in env: {env_val}")
             return env_val
         
         # 2. Check config.json
-        return self._config_data.get(key, default)
+        val = self._config_data.get(key, default)
+        # if val: print(f"DEBUG: Found {key} in config.json: {val}")
+        return val
 
     @property
     def encryption_key(self) -> bytes:

@@ -1,0 +1,11 @@
+{
+    "server_ip": "127.0.0.1",
+    "server_port": 50053,
+    "domain": "ghost.net",
+    "encryption_key": "01234567890123456789012345678901",
+    "chunk_size": 30,
+    "delay_min": 0.1,
+    "delay_max": 0.5,
+    "session_id_length": 8,
+    "log_level": "INFO"
+}

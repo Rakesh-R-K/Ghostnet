@@ -23,7 +23,7 @@ wheels/
 
 # Secrets
 .env
-config.json
+# config.json
 
 # Tooling
 .pytest_cache/
