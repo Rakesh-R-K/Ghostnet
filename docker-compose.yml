@@ -19,12 +19,12 @@ services:
     environment:
       - GHOSTNET_SERVER_IP=server
       - GHOSTNET_SERVER_PORT=53
-      - GHOSTNET_ENCRYPTION_KEY=${GHOSTNET_ENCRYPTION_KEY:-test-key-32-chars-long-1234567890}
+      - GHOSTNET_ENCRYPTION_KEY=${GHOSTNET_ENCRYPTION_KEY:-standard-test-key-32-chars-long!}
     depends_on:
       - server
     networks:
       - ghostnet-net
-    command: ["tail", "-f", "/dev/null"] # Keep alive for manual testing
+    command: [ "tail", "-f", "/dev/null" ] # Keep alive for manual testing
 
 networks:
   ghostnet-net:

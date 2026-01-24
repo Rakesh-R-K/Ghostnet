@@ -25,6 +25,6 @@ jobs:
         
     - name: Run tests
       env:
-        GHOSTNET_ENCRYPTION_KEY: "test-key-32-chars-long-1234567890"
+        GHOSTNET_ENCRYPTION_KEY: "standard-test-key-32-chars-long!"
       run: |
         pytest tests/ -v
