@@ -1,0 +1,23 @@
+[project]
+name = "ghostnet"
+version = "0.1.0"
+description = "A covert file transfer system via DNS tunneling"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "cryptography>=41.0.0",
+    "python-dotenv>=1.0.0",
+    "structlog>=24.1.0",
+]
+
+[project.scripts]
+ghostnet-server = "server.ghostnet_server:main"
+ghostnet-client = "client.ghostnet_client:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["client*", "server*", "common*"]
